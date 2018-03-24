@@ -22,8 +22,11 @@ PkgConfigBR:
   - Qt5Qml
   - Qt5Quick
 
+PkgBR:
+  - sailfish-svg2png
+
 Requires:
-  - sailfishsilica-qt5 >= 0.10.9 
+  - sailfishsilica-qt5 >= 0.10.9
 
 Files:
   - '%{_bindir}'

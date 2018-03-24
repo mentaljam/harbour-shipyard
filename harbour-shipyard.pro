@@ -61,8 +61,6 @@ DISTFILES += \
     LICENSE \
     README.md
 
-SAILFISHAPP_ICONS = 86x86 108x108 128x128 172x172
-
 CONFIG += \
     sailfishapp_i18n \
     sailfishapp_i18n_idbased \
@@ -77,3 +75,5 @@ TRANSLATIONS += \
     translations/harbour-shipyard-pt_BR.ts \
     translations/harbour-shipyard-ru.ts \
     translations/harbour-shipyard-sv.ts
+
+include(icons/icons.pri)
