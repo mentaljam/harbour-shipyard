@@ -25,7 +25,6 @@ BackgroundItem {
     Text {
         id: label
         anchors {
-            horizontalCenter: parent.horizontalCenter
             bottom: parent.bottom
             bottomMargin: Theme.paddingLarge
             left: parent.left
