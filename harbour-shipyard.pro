@@ -39,6 +39,7 @@ DISTFILES += \
     qml/pages/MainPage.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/AboutPage.qml \
+    qml/pages/DevelopmentPage.qml \
     qml/pages/CleanerPage.qml \
     qml/pages/CleanerConfirmationDialog.qml \
     qml/pages/CleanerItemsPage.qml \
@@ -52,6 +53,7 @@ DISTFILES += \
     qml/components/CleanerItemDelegate.qml \
     qml/components/CleanerSizeLabel.qml \
     qml/components/CleanerPageMenu.qml \
+    qml/models/DevelopersModel.qml \
     rpm/harbour-shipyard.changes \
     rpm/harbour-shipyard.yaml \
     translations/*.ts \

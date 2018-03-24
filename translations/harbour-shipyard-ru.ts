@@ -51,10 +51,6 @@
         <source>Cache</source>
         <translation>Кэш</translation>
     </message>
-    <message id="hsy-total">
-        <source>Total</source>
-        <translation>Всего</translation>
-    </message>
     <message id="hsy-delete-config">
         <source>Delete configuration</source>
         <translation>Удалить настройки</translation>
@@ -123,6 +119,10 @@
         <source>Deleted</source>
         <translation>Удалено</translation>
     </message>
+    <message id="hsy-total">
+        <source>Total</source>
+        <translation>Всего</translation>
+    </message>
     <message id="hsy-empty">
         <source>empty</source>
         <translation>пусто</translation>
@@ -154,10 +154,6 @@
     <message id="hsy-translations">
         <source>Translations</source>
         <translation>Переводы</translation>
-    </message>
-    <message id="hsy-donate-with">
-        <source>Donate with %1</source>
-        <translation>Поддержать через %1</translation>
     </message>
     <message id="hsy-counters">
         <source>Counters</source>
@@ -203,6 +199,18 @@
     <message id="hsy-cleaning">
         <source>Cleaning</source>
         <translation>Очистка</translation>
+    </message>
+    <message id="hsy-role-mentaljam">
+        <source>Project maintenance.</source>
+        <translation>Руководство проектом.</translation>
+    </message>
+    <message id="hsy-role-gregguh">
+        <source>Application icons.</source>
+        <translation>Значки и иконка приложения.</translation>
+    </message>
+    <message id="hsy-donate-with">
+        <source>Donate with</source>
+        <translation>Поддержать</translation>
     </message>
 </context>
 </TS>

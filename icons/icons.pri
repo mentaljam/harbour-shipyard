@@ -18,3 +18,8 @@ svg2png.commands = $$join(SVG2PNG_COMMANDS, " && ")
 svg2png.CONFIG += no_link target_predeps combine
 
 QMAKE_EXTRA_COMPILERS += svg2png
+
+# Install donation icons
+donation.files = $$PWD/donation
+donation.path = /usr/share/$${TARGET}/icons
+INSTALLS += donation

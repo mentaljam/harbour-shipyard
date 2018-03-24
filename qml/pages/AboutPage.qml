@@ -62,24 +62,13 @@ Page {
                 Button {
                     //% "Development"
                     text: qsTrId("hsy-development")
-                    onClicked: Qt.openUrlExternally("https://github.com/mentaljam/harbour-shipyard")
+                    onClicked: pageStack.push(Qt.resolvedUrl("DevelopmentPage.qml"))
                 }
 
                 Button {
                     //% "Translations"
                     text: qsTrId("hsy-translations")
                     onClicked: Qt.openUrlExternally("https://www.transifex.com/mentaljam/harbour-shipyard")
-                }
-
-                Button {
-                    //% "Donate with %1"
-                    text: qsTrId("hsy-donate-with").arg("PayPal")
-                    onClicked: Qt.openUrlExternally("https://www.paypal.me/osetr")
-                }
-
-                Button {
-                    text: qsTrId("hsy-donate-with").arg("Yandex.Money")
-                    onClicked: Qt.openUrlExternally("https://money.yandex.ru/to/410012535782304")
                 }
             }
         }

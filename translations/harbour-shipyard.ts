@@ -153,10 +153,6 @@
         <source>Translations</source>
         <translation>Translations</translation>
     </message>
-    <message id="hsy-donate-with">
-        <source>Donate with %1</source>
-        <translation>Donate with %1</translation>
-    </message>
     <message id="hsy-counters">
         <source>Counters</source>
         <translation>Counters</translation>
@@ -201,6 +197,18 @@
     <message id="hsy-cleaning">
         <source>Cleaning</source>
         <translation>Cleaning</translation>
+    </message>
+    <message id="hsy-role-mentaljam">
+        <source>Project maintenance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="hsy-role-gregguh">
+        <source>Application icons.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message id="hsy-donate-with">
+        <source>Donate with</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
