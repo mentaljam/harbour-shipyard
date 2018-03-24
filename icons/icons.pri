@@ -19,6 +19,11 @@ svg2png.CONFIG += no_link target_predeps combine
 
 QMAKE_EXTRA_COMPILERS += svg2png
 
+# Install menu icons
+menu.files = $$PWD/menu
+menu.path = /usr/share/$${TARGET}/icons
+INSTALLS += menu
+
 # Install donation icons
 donation.files = $$PWD/donation
 donation.path = /usr/share/$${TARGET}/icons

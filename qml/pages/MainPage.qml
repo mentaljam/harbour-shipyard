@@ -37,8 +37,7 @@ Page {
 
             MainPageButton {
                 text: qsTrId("hsy-cleaning")
-                iconSource: "image://theme/icon-l-storage?" +
-                            (pressed ? Theme.highlightColor : Theme.primaryColor)
+                iconSource: "/usr/share/harbour-shipyard/icons/menu/icon-l-cleaning-mop.png"
                 onClicked: pageStack.push(Qt.resolvedUrl("CleanerPage.qml"))
             }
         }
