@@ -200,15 +200,28 @@
     </message>
     <message id="hsy-role-mentaljam">
         <source>Project maintenance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Project maintenance.</translation>
     </message>
     <message id="hsy-role-gregguh">
         <source>Application icons.</source>
-        <translation type="unfinished"></translation>
+        <translation>Application icons.</translation>
     </message>
     <message id="hsy-donate-with">
         <source>Donate with</source>
-        <translation type="unfinished"></translation>
+        <translation>Donate with</translation>
+    </message>
+    <message id="hsy-notification-deleted">
+        <source>Deleted %1</source>
+        <translation>Deleted %1</translation>
+    </message>
+    <message id="hsy-notification-error-title">
+        <source>An error occured!</source>
+        <translation>An error occured!</translation>
+    </message>
+    <message id="hsy-notification-error-body">
+        <source>Error deleting &amp;quot;%1&amp;quot;.</source>
+        <extracomment>&amp;quot; should be replaced with real quotes</extracomment>
+        <translation>Error deleting &quot;%1&quot;.</translation>
     </message>
 </context>
 </TS>

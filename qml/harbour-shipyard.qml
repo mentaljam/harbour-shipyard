@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.Notifications 1.0
 import harbour.shipyard 1.0
 import "pages"
 
@@ -40,6 +41,28 @@ ApplicationWindow {
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     _defaultPageOrientations: Orientation.All
 
+    Notification {
+
+        function show(text, icn) {
+            replacesId = 0
+            previewSummary = ""
+            previewBody = text
+            icon = icn ? icn : ""
+            publish()
+        }
+
+        function showPopup(title, text, icn) {
+            replacesId = 0
+            previewSummary = title
+            previewBody = text
+            icon = icn
+            publish()
+        }
+
+        id: notification
+        expireTimeout: 3000
+    }
+
     Shipyard {
         id: shipyard
     }
@@ -48,6 +71,20 @@ ApplicationWindow {
         id: appListModel
         processConfig: shipyard.processConfigEnabled
 
-        onDataDeleted: shipyard.addDeletedData(size)
+        onDataDeleted: {
+            shipyard.addDeletedData(size)
+            //% "Deleted %1"
+            notification.show(qsTrId("hsy-notification-deleted").arg(prettyBytes(size)))
+        }
+
+        onDeletionError: {
+            notification.showPopup(
+                        //% "An error occured!"
+                        qsTrId("hsy-notification-error-title"),
+                        //: &quot; should be replaced with real quotes
+                        //% "Error deleting &quot;%1&quot;."
+                        qsTrId("hsy-notification-error-body").arg(path),
+                        "image://theme/icon-lock-warning")
+        }
     }
 }
