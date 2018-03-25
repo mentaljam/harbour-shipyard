@@ -4,7 +4,7 @@ import harbour.shipyard 1.0
 
 
 SilicaFlickable {
-    opacity: !cleanerModel.resetting ? 1.0 : 0.0
+    opacity: !appListModel.resetting ? 1.0 : 0.0
     visible: opacity === 1.0
     contentHeight: header.height + content.height
 
@@ -37,20 +37,20 @@ SilicaFlickable {
         CleanerDataLabel {
             //% "Found"
             title: qsTrId("hsy-found")
-            appsCount: cleanerModel.totalAppsCount
-            configSize: cleanerModel.totalConfigSize
-            cacheSize: cleanerModel.totalCacheSize
-            localDataSize: cleanerModel.totalLocaldataSize
+            appsCount: appListModel.totalAppsCount
+            configSize: appListModel.totalConfigSize
+            cacheSize: appListModel.totalCacheSize
+            localDataSize: appListModel.totalLocaldataSize
         }
 
         CleanerDataLabel {
             opacity: _canDeleteUnused ? 1.0 : 0.0
             //% "Unused"
             title: qsTrId("hsy-unused")
-            appsCount: cleanerModel.unusedAppsCount
-            configSize: cleanerModel.unusedConfigSize
-            cacheSize: cleanerModel.unusedCacheSize
-            localDataSize: cleanerModel.unusedLocaldataSize
+            appsCount: appListModel.unusedAppsCount
+            configSize: appListModel.unusedConfigSize
+            cacheSize: appListModel.unusedCacheSize
+            localDataSize: appListModel.unusedLocaldataSize
         }
 
         Item {

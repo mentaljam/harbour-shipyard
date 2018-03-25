@@ -20,9 +20,9 @@ ListItem {
             text: qsTrId("hsy-delete-all")
             //% "Deleting all data"
             onClicked: remorseAction(qsTrId("hsy-deleting-alldata"), function() {
-                cleanerModel.deleteData(name, shipyard.processConfigEnabled ?
-                                     CleanerListModel.AllData :
-                                     CleanerListModel.CacheData | CleanerListModel.LocalData)
+                appListModel.deleteData(name, shipyard.processConfigEnabled ?
+                                     AppListModel.AllData :
+                                     AppListModel.CacheData | AppListModel.LocalData)
             })
         }
 
@@ -34,7 +34,7 @@ ListItem {
             text: qsTrId("hsy-delete-config")
             //% "Deleting configuration"
             onClicked: remorseAction(qsTrId("hsy-deleting-config"), function() {
-                cleanerModel.deleteData(name, CleanerListModel.ConfigData)
+                appListModel.deleteData(name, AppListModel.ConfigData)
             })
         }
 
@@ -45,7 +45,7 @@ ListItem {
             text: qsTrId("hsy-delete-cache")
             //% "Deleting cache"
             onClicked: remorseAction(qsTrId("hsy-deleting-cache"), function() {
-                cleanerModel.deleteData(name, CleanerListModel.CacheData)
+                appListModel.deleteData(name, AppListModel.CacheData)
             })
         }
 
@@ -56,7 +56,7 @@ ListItem {
             text: qsTrId("hsy-delete-localdata")
             //% "Deleting local data"
             onClicked: remorseAction(qsTrId("hsy-deleting-localdata"), function() {
-                cleanerModel.deleteData(name, CleanerListModel.LocalData)
+                appListModel.deleteData(name, AppListModel.LocalData)
             })
         }
     }

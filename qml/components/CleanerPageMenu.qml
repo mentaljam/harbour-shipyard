@@ -3,7 +3,7 @@ import Sailfish.Silica 1.0
 
 
 PullDownMenu {
-    busy: cleanerModel.busy
+    busy: appListModel.busy
 
     MenuItem {
         enabled: _canDeleteUnused
@@ -13,9 +13,9 @@ PullDownMenu {
     }
 
     MenuItem {
-        enabled: !cleanerModel.busy
+        enabled: !appListModel.busy
         //% "Rescan"
         text: qsTrId("hsy-rescan")
-        onClicked: cleanerModel.reset()
+        onClicked: appListModel.reset()
     }
 }

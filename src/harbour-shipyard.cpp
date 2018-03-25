@@ -4,15 +4,15 @@
 
 #include <shipyard_version.h>
 #include "shipyard.h"
-#include "cleanerlistmodel.h"
-#include "cleanerproxymodel.h"
+#include "applistmodel.h"
+#include "proxymodel.h"
 
 
 int main(int argc, char *argv[])
 {
-    qmlRegisterType<Shipyard>           ("harbour.shipyard", 1, 0, "Shipyard");
-    qmlRegisterType<CleanerListModel>   ("harbour.shipyard", 1, 0, "CleanerListModel");
-    qmlRegisterType<CleanerProxyModel>  ("harbour.shipyard", 1, 0, "CleanerProxyModel");
+    qmlRegisterType<Shipyard>    ("harbour.shipyard", 1, 0, "Shipyard");
+    qmlRegisterType<AppListModel>("harbour.shipyard", 1, 0, "AppListModel");
+    qmlRegisterType<ProxyModel>  ("harbour.shipyard", 1, 0, "ProxyModel");
     qRegisterMetaType<QVector<int>>();
 
     auto app = SailfishApp::application(argc, argv);

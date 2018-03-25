@@ -9,9 +9,9 @@ Dialog {
 
     onStatusChanged: {
         if (status === DialogStatus.Closed && result === DialogResult.Accepted) {
-            cleanerModel.deleteUnusedData(shipyard.processConfigEnabled ?
-                                              CleanerListModel.AllData :
-                                              CleanerListModel.CacheData | CleanerListModel.LocalData)
+            appListModel.deleteUnusedData(shipyard.processConfigEnabled ?
+                                              AppListModel.AllData :
+                                              AppListModel.CacheData | AppListModel.LocalData)
         }
     }
 

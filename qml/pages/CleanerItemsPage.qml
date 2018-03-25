@@ -16,7 +16,7 @@ Page {
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
-        running: cleanerModel.resetting
+        running: appListModel.resetting
     }
 
     CleanerItems {

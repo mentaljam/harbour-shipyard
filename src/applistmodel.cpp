@@ -1,4 +1,4 @@
-#include "cleanerlistmodel.h"
+#include "applistmodel.h"
 #include <shipyard_known_apps.hpp>
 
 #include <QTimer>
@@ -42,7 +42,7 @@ void processKnownPaths(QStringList &paths, qint64 &size, const QStringList &know
 }
 
 
-CleanerListModel::CleanerListModel(QObject *parent)
+AppListModel::AppListModel(QObject *parent)
     : QAbstractListModel(parent)
     , m_busy(false)
     , m_resetting(false)
@@ -55,25 +55,25 @@ CleanerListModel::CleanerListModel(QObject *parent)
     , m_unused_cache_size(0)
     , m_unused_localdata_size(0)
 {
-    QTimer::singleShot(500, this, &CleanerListModel::reset);
+    QTimer::singleShot(500, this, &AppListModel::reset);
 }
 
-bool CleanerListModel::busy() const
+bool AppListModel::busy() const
 {
     return m_busy;
 }
 
-bool CleanerListModel::resetting() const
+bool AppListModel::resetting() const
 {
     return m_resetting;
 }
 
-bool CleanerListModel::processConfig() const
+bool AppListModel::processConfig() const
 {
     return m_process_config;
 }
 
-void CleanerListModel::setProcessConfig(bool value)
+void AppListModel::setProcessConfig(bool value)
 {
     if(m_process_config != value)
     {
@@ -83,63 +83,63 @@ void CleanerListModel::setProcessConfig(bool value)
     }
 }
 
-qint64 CleanerListModel::totalConfigSize() const
+qint64 AppListModel::totalConfigSize() const
 {
     return m_total_config_size;
 }
 
-qint64 CleanerListModel::totalCacheSize() const
+qint64 AppListModel::totalCacheSize() const
 {
     return m_total_cache_size;
 }
 
-qint64 CleanerListModel::totalLocaldataSize() const
+qint64 AppListModel::totalLocaldataSize() const
 {
     return m_total_localdata_size;
 }
 
-int CleanerListModel::unusedAppsCount() const
+int AppListModel::unusedAppsCount() const
 {
     return m_unused_apps_count;
 }
 
-qint64 CleanerListModel::unusedConfigSize() const
+qint64 AppListModel::unusedConfigSize() const
 {
     return m_unused_config_size;
 }
 
-qint64 CleanerListModel::unusedCacheSize() const
+qint64 AppListModel::unusedCacheSize() const
 {
     return m_unused_cache_size;
 }
 
-qint64 CleanerListModel::unusedLocaldataSize() const
+qint64 AppListModel::unusedLocaldataSize() const
 {
     return m_unused_localdata_size;
 }
 
-void CleanerListModel::reset()
+void AppListModel::reset()
 {
-    QtConcurrent::run(this, &CleanerListModel::resetImpl);
+    QtConcurrent::run(this, &AppListModel::resetImpl);
 }
 
-void CleanerListModel::deleteData(const QString &name, DataTypes types)
+void AppListModel::deleteData(const QString &name, DataTypes types)
 {
-    QtConcurrent::run(this, &CleanerListModel::deleteDataImpl, name, types);
+    QtConcurrent::run(this, &AppListModel::deleteDataImpl, name, types);
 }
 
-void CleanerListModel::deleteUnusedData(DataTypes types)
+void AppListModel::deleteUnusedData(DataTypes types)
 {
-    QtConcurrent::run(this, &CleanerListModel::deleteUnusedDataImpl, types);
+    QtConcurrent::run(this, &AppListModel::deleteUnusedDataImpl, types);
 }
 
-void CleanerListModel::setBusy(bool busy)
+void AppListModel::setBusy(bool busy)
 {
     m_busy = busy;
     emit this->busyChanged();
 }
 
-qint64 CleanerListModel::removePaths(const QStringList &paths)
+qint64 AppListModel::removePaths(const QStringList &paths)
 {
     for (const auto &p : paths)
     {
@@ -179,7 +179,7 @@ qint64 CleanerListModel::removePaths(const QStringList &paths)
     return res;
 }
 
-QVector<int> CleanerListModel::clearEntry(CleanerListItem &item, qint64 &deleted, DataTypes types)
+QVector<int> AppListModel::clearEntry(CleanerListItem &item, qint64 &deleted, DataTypes types)
 {
     QVector<int> changed;
 
@@ -217,7 +217,7 @@ QVector<int> CleanerListModel::clearEntry(CleanerListItem &item, qint64 &deleted
     return changed;
 }
 
-void CleanerListModel::resetImpl()
+void AppListModel::resetImpl()
 {
     this->setBusy(true);
     this->beginResetModel();
@@ -340,7 +340,7 @@ void CleanerListModel::resetImpl()
     emit this->resettingChanged();
 }
 
-void CleanerListModel::deleteDataImpl(const QString &name, DataTypes types)
+void AppListModel::deleteDataImpl(const QString &name, DataTypes types)
 {
     if (!m_items.contains(name))
     {
@@ -375,7 +375,7 @@ void CleanerListModel::deleteDataImpl(const QString &name, DataTypes types)
     this->setBusy(false);
 }
 
-void CleanerListModel::deleteUnusedDataImpl(DataTypes types)
+void AppListModel::deleteUnusedDataImpl(DataTypes types)
 {
     this->setBusy(true);
 
@@ -418,7 +418,7 @@ void CleanerListModel::deleteUnusedDataImpl(DataTypes types)
     this->setBusy(false);
 }
 
-void CleanerListModel::calculateTotal()
+void AppListModel::calculateTotal()
 {
     m_unused_apps_count = 0;
     m_total_localdata_size = 0;
@@ -443,12 +443,12 @@ void CleanerListModel::calculateTotal()
     emit this->totalChanged();
 }
 
-int CleanerListModel::rowCount(const QModelIndex &parent) const
+int AppListModel::rowCount(const QModelIndex &parent) const
 {
     return !parent.isValid() ? m_names.size() : 0;
 }
 
-QVariant CleanerListModel::data(const QModelIndex &index, int role) const
+QVariant AppListModel::data(const QModelIndex &index, int role) const
 {
     if (!index.isValid())
     {
@@ -483,7 +483,7 @@ QVariant CleanerListModel::data(const QModelIndex &index, int role) const
     return QVariant();
 }
 
-QHash<int, QByteArray> CleanerListModel::roleNames() const
+QHash<int, QByteArray> AppListModel::roleNames() const
 {
     return {
         { NameRole,          "name" },

@@ -7,9 +7,9 @@ import "pages"
 ApplicationWindow {
     readonly property var _locale: Qt.locale()
     readonly property bool _canDeleteUnused:
-        !cleanerModel.busy && (shipyard.processConfigEnabled ?
-                                   cleanerModel.unusedAppsCount > 0 :
-                                   cleanerModel.unusedCacheSize + cleanerModel.unusedLocaldataSize > 0)
+        !appListModel.busy && (shipyard.processConfigEnabled ?
+                                   appListModel.unusedAppsCount > 0 :
+                                   appListModel.unusedCacheSize + appListModel.unusedLocaldataSize > 0)
 
     function prettyBytes(bytes) {
         var i = 0
@@ -44,8 +44,8 @@ ApplicationWindow {
         id: shipyard
     }
 
-    CleanerListModel {
-        id: cleanerModel
+    AppListModel {
+        id: appListModel
         processConfig: shipyard.processConfigEnabled
 
         onDataDeleted: shipyard.addDeletedData(size)

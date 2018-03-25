@@ -11,15 +11,15 @@ MOC_DIR = moc
 
 HEADERS += \
     src/shipyard.h \
-    src/cleanerlistitem.h \
-    src/cleanerlistmodel.h \
-    src/cleanerproxymodel.h
+    src/applistitem.h \
+    src/applistmodel.h \
+    src/proxymodel.h
 
 SOURCES += \
     src/shipyard.cpp \
     src/harbour-shipyard.cpp \
-    src/cleanerlistmodel.cpp \
-    src/cleanerproxymodel.cpp
+    src/applistmodel.cpp \
+    src/proxymodel.cpp
 
 # Write version file
 VERSION_H = \

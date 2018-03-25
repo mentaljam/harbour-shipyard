@@ -59,12 +59,12 @@ Page {
     BusyIndicator {
         size: BusyIndicatorSize.Large
         anchors.centerIn: parent
-        running: cleanerModel.resetting
+        running: appListModel.resetting
     }
 
     Loader {
         id: loader
-        visible: !cleanerModel.resetting
+        visible: !appListModel.resetting
         anchors.fill: parent
         sourceComponent: isPortrait ? singlePaneComponent : doublePaneComponent
     }

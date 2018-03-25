@@ -1,14 +1,14 @@
-﻿#ifndef CLEANERLISTMODEL_H
-#define CLEANERLISTMODEL_H
+﻿#ifndef APPLISTMODEL_H
+#define APPLISTMODEL_H
 
 #include <QAbstractListModel>
 
-#include "cleanerlistitem.h"
+#include "applistitem.h"
 
 
-class CleanerListModel : public QAbstractListModel
+class AppListModel : public QAbstractListModel
 {
-    friend class CleanerProxyModel;
+    friend class ProxyModel;
 
     Q_OBJECT
     Q_PROPERTY(bool busy READ busy NOTIFY busyChanged)
@@ -48,7 +48,7 @@ public:
     Q_DECLARE_FLAGS(DataTypes, DataType)
     Q_FLAGS(DataTypes)
 
-    explicit CleanerListModel(QObject *parent = nullptr);
+    explicit AppListModel(QObject *parent = nullptr);
 
     bool busy() const;
     bool resetting() const;
@@ -107,6 +107,6 @@ public:
     QHash<int, QByteArray> roleNames() const;
 };
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(CleanerListModel::DataTypes)
+Q_DECLARE_OPERATORS_FOR_FLAGS(AppListModel::DataTypes)
 
-#endif // CLEANERLISTMODEL_H
+#endif // APPLISTMODEL_H
