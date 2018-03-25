@@ -223,5 +223,13 @@
         <extracomment>&amp;quot; should be replaced with real quotes</extracomment>
         <translation>Error deleting &quot;%1&quot;.</translation>
     </message>
+    <message id="hsy-working">
+        <source>Working...</source>
+        <translation>Working...</translation>
+    </message>
+    <message id="hsy-cover-could-be-deleted">
+        <source>%1 could be deleted</source>
+        <translation>%1 could be deleted</translation>
+    </message>
 </context>
 </TS>
